@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TIC TAC TOE GAME</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>WELCOME TO TIC TAC TOE!</h1>
+        <p><a id='restart' class="btn btn-primary btn-lg" href="#" role="button">Restart!</a></p>
+      </div>
+
+      <table class="tictactoetable" align= 'center'>
+        <tr>
+          <td id="one"></td>
+          <td id="two"></td>
+          <td id="three"></td>
+        </tr>
+        <tr>
+          <td id="four"></td>
+          <td id="five"></td>
+          <td id="six"></td>
+        </tr>
+        <tr>
+          <td id="seven"></td>
+          <td id="eight"></td>
+          <td id="nine"></td>
+        </tr>
+
+        <style>
+        td{
+            height: 150px;
+            width: 150px;
+            text-align: center;
+            /*padding: 100px;*/
+            border: 5px solid black;
+            font-size: 100px
+          }
+        </style>
+      </table>
+    </div>
+  </body>
+  <script>
+    var myBoxes = document.querySelectorAll('td');
+
+    var emptyBoxes = document.querySelector('#restart')
+
+    function clearBoxes(){
+      for(var i = 0; i < myBoxes.length; i++){
+        myBoxes[i].textContent = " ";
+      }
+    }
+
+    emptyBoxes.addEventListener('click',clearBoxes);
+
+
+    function markXAndO(){
+      if(this.textContent === ''){
+        this.textContent = 'X';
+      }else if(this.textContent === 'X'){
+        this.textContent = 'O';
+      }else{
+        this.textContent = ''
+      }
+    }
+
+
+    for (var i = 0; i < myBoxes.length; i++) {
+      myBoxes[i].addEventListener('click',markXAndO);
+    }
+  </script>
+</html>
